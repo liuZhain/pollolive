@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pollive - Polling Massal</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Pollive - Platform polling massal real-time">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <h1>📊 Pollive</h1>
+      <p class="subtitle">Polling Massal Real-Time</p>
+    </div>
+    
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="👤 Nama kamu" required>
+      <input type="text" id="roomCode" placeholder="🔑 Kode Room" required>
+      <input type="password" id="roomPassword" placeholder="🔒 Password Room (opsional)">
+      
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" id="isAdmin"> Buat sebagai Admin
+        </label>
+      </div>
+      
+      <button type="submit">🚀 Masuk Room</button>
+    </form>
+    
+    <div class="footer">
+      <p>Made with ❤️ by Pollive</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const roomCode = document.getElementById('roomCode').value.toUpperCase();
+      const isAdmin = document.getElementById('isAdmin').checked;
+      const password = document.getElementById('roomPassword').value;
+      window.location.href = `/room.html?room=${roomCode}&user=${username}&admin=${isAdmin}&password=${password}`;
+    });
+  </script>
+</body>
+</html>
